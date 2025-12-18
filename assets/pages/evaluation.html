@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Kelompok 10</title>
+    <style>
+        @import url(../styles/style.css);
+    </style>
+</head>
+<body>
+    <div class="head">
+        <header>
+            <div class="title">
+                <h1>Kelompok 10</h1>
+                <p>Materi Pohon</p>
+            </div>
+            <nav>
+                <a href="/index.html">Materials Page</a>
+                <a href="../pages/evaluation.html" class="active" aria-current="page">Evaluation</a>
+                <a href="../pages/calculator.html">Calculator</a>
+            </nav>
+        </header>
+    </div>
+    <div class="container">
+        <div class="material">
+            <h2>Pohon & Pohon Berakar</h2>
+            
+            <div class="materi-item">
+                <h3>1. Tentukan dari dua graf di bawah ini, graf mana yang termasuk pohon, dan jelaskan alasannya!</h3>
+                <img src="../img/n1.jpg" alt="#">
+                <div>
+                    <div class="button-area">
+                        <button id="showAnswer" onclick="showAns1()">Show Answer</button>
+                        <button id="hideAnswer" onclick="hideAns1()">Hide Answer</button>
+                    </div>
+                    <p id="answer1" style="display: none;">
+                        Graf A merupakan pohon, karena memiliki sifat pohon<br/>
+                        - dia memiliki sisi terhubung<br/>
+                        - Tidak memiliki sikuit<br/>
+                        - Jumlah sisinya n-1 (jumlah simpul - 1)<br/>
+                        Graf B bukan pohon, karena memiliki sirkuit pada sisinya.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="materi-item">
+                <h3>2. Jelaskan Mengapa ketiga graf di bawah ini termasuk forest!</h3>
+                <img src="../img/n2.jpg" alt="#">
+                <div>
+                    <div class="button-area">
+                        <button id="showAnswer" onclick="showAns2()">Show Answer</button>
+                        <button id="hideAnswer" onclick="hideAns2()">Hide Answer</button>
+                    </div>
+                    <p id="answer2" style="display: none;">
+                        Graf tersebut merupakan forest/hutan, karena kumpulan graf tersebut saling lepas dan masing-masing graf 
+                        merupakan pohon yang memiliki simpul terhubung tetapi tidak memiliki sirkuit.
+                    </p>
+                </div>
+            </div>
+            <div class="materi-item">
+                <h3>3. Tentukan minimum spanning tree dari spanning tree berikut dan total bobot minimumnya dengan menggunakan algoritma prim!</h3>
+                <img src="../img/n3.jpg" alt="#">
+                <div>
+                    <div class="button-area">
+                        <button id="showAnswer" onclick="showAns3()">Show Answer</button>
+                        <button id="hideAnswer" onclick="hideAns3()">Hide Answer</button>
+                    </div>
+                    <div id="answer3" style="display: none;">
+                        <img src="../img/jwb3.jpg" alt="Hasil Minimum Spanning Tree">
+                        <p>
+                            Bobot Sisi :<br/>
+                            C-B = 1<br/>
+                            A-C = 2<br/>
+                            C-D - 3<br/>
+                            B-E = 5<br/>
+                            Maka total bobotnya adalah :<br/>
+                            1 + 2 + 3 + 5 = 11
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="materi-item">
+                <h3>4. Tentukan minimum spanning tree dari spanning tree berikut dan total bobot minimumnya dengan menggunakan algoritma kruskal!</h3>
+                <img src="../img/n4.jpg" alt="#">
+                <table>
+                    <tr>
+                        <td>T - U = 2</td>
+                        <td>R - S = 3</td>
+                        <td>Q - R = 4</td>
+                        <td>P - S = 5</td>
+                        <td>P - R = 6</td>
+                        <td>Q - T = 7</td>
+                        <td>S - T = 8</td>
+                        <td>P - Q = 9</td>
+                        <td>S - U = 10</td>
+                    </tr>
+                </table>
+                <div>
+                    <div class="button-area">
+                        <button id="showAnswer" onclick="showAns4()">Show Answer</button>
+                        <button id="hideAnswer" onclick="hideAns4()">Hide Answer</button>
+                    </div>
+                    <div id="answer4" style="display: none;">
+                        <p>
+                            <table>
+                                <tr>
+                                    <td>T - U = 2</td>
+                                    <td>R - S = 3</td>
+                                    <td>Q - R = 4</td>
+                                    <td>P - S = 5</td>
+                                    <td>P - R = 6</td>
+                                    <td>Q - T = 7</td>
+                                    <td>S - T = 8</td>
+                                    <td>P - Q = 9</td>
+                                    <td>S - U = 10</td>
+                                </tr>
+                                <tr>
+                                    <td>Pilih</td>
+                                    <td>Pilih</td>
+                                    <td>Pilih</td>
+                                    <td>Pilih</td>
+                                    <td>Tidak di Pilih</td>
+                                    <td>Pilih</td>
+                                    <td>Tidak di Pilih</td>
+                                    <td>Tidak di Pilih</td>
+                                    <td>Tidak di Pilih</td>
+                                </tr>
+                            </table>
+                            <p>Hasil Minimum Spanning Tree:</p>
+                            <img src="../img/jwb4.jpg" alt="Hasil Minimum Spanning Tree">
+                            <p>Maka total bobotnya adalah :<br/>
+                            2 + 3 + 4 + 5 + 7 = 21</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="materi-item">
+                <h3>5. Jika A adalah akar(root), tentukan: <br>
+                    <li>Parent dari E adalah</li>
+                    <li>Siblings dari C adalah</li>
+                    <li>Child dari D adalah</li>
+                    <li>Level dari simpul F adalah </li>
+                    </h3>            
+                <img src="../img/n5.jpg" alt="#" style="max-width: 220px;">
+                <div>
+                    <div class="button-area">
+                        <button id="showAnswer" onclick="showAns5()">Show Answer</button>
+                        <button id="hideAnswer" onclick="hideAns5()">Hide Answer</button>
+                    </div>
+                    <p id="answer5" style="display: none;">
+                        - Parent dari E adalah C<br/>
+                        - Siblings dari C adalah B dan D<br/>
+                        - Child dari D tidak ada<br/>
+                        - Level dari simpul F adalah 3<br/>
+                        Karena cara menghitung level adalah dengan menghitung simpul dari root sampai simpul yang dicari levelnya, 
+                        tetapi level dari root adalah 0, jadi level dari simpul F adalah 3.
+                    </p>
+                </div>
+            </div>
+            <div class="materi-item">
+                <h3>6. Berikan satu kasus nyata yang dapat di modelkan menggunakan srtuktur tree, lalu jelaskan mengapa model tersebut cocok menggunakan tree dan bukan graf umum !</h3>
+                <img>
+                <div>
+                    <div class="button-area">
+                        <button id="showAnswer" onclick="showAns6()">Show Answer</button>
+                        <button id="hideAnswer" onclick="hideAns6()">Hide Answer</button>
+                    </div>
+                    <p id="answer6" style="display: none;">
+                        Contoh kasus nyata adalah seperti struktur organisasi perusahaan.<br/>
+                        Alsannya karna :<br/>
+                        •	Memiliki satu root (direktur)<br/>
+                        •	Hubungan hierarki (parent -child )<br/>
+                        •	Tidak ada siklus <br/>
+                        •	Setiap anggota punya satu atasan langsung 
+                    </p>
+                </div>
+            </div>
+            <div class="materi-item">
+                <h3>7. Sebuah graf memiliki <input type="number" id="eva7" placeholder="20"> simpul (vertex) dan merupakan sebuah tree. Berapa jumlah sisinya (edge)? Jelaskan alsannya.</h3>
+                <img>
+                <div>
+                    <div class="button-area">
+                        <button id="showAnswer" onclick="showAns7()">Show Answer</button>
+                        <button id="hideAnswer" onclick="hideAns7()">Hide Answer</button>
+                    </div>
+                    <div id="answer7" style="display: none;">
+                        <p>
+                            Jika graf memiliki <strong id="outputEva7"></strong> simpul, maka jumlah sisi(edge) sama dengan n-1 
+                            yaitu <strong id="outputEva72"></strong> - 1 = <strong id="resultEva7"></strong> sisi. <br/>
+                            Karena setiap tree selalu memiliki n-1 sisi(edge).
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="materi-item">
+                <h3>8. Perhatikan ciri ciri graf berikut ! <br>
+                    <li>Memiliki 6 simpul yang tidak memiliki 6 siklus</li>
+                    <li>Salah satu simpul tidak terhubung dengan bagian graf lainnya</li> 
+                    Dari ciri ciri di atas apakah graf tersebut merupakan tree? Jelaskan mengapa
+                </h3>
+                <img>
+                <div>
+                    <div class="button-area">
+                        <button id="showAnswer" onclick="showAns8()">Show Answer</button>
+                        <button id="hideAnswer" onclick="hideAns8()">Hide Answer</button>
+                    </div>
+                    <p id="answer8" style="display: none;">
+                        Pada ciri-ciri di atas, graf tersebut memiliki 6 simpul dan tidak memiliki sirkuit yang memenuhi syarat tree yang tidak memiliki sirkuit. <br/>
+                        Tetapi pada ciri kedua, graf tersebut memiliki simpul yang tidak terhubung dengan bagian simpul lainnya, yang membuat graf tersebut tidak memenuhi syarat tree, 
+                        karena semua simpul pada tree harus saling terhubung dan tidak membentuk sirkuit. <br/>
+                        Kesimpulannya, graf dari ciri-ciri tersebut bukan merupakan tree.
+                    </p>
+                </div>
+            </div>
+            <div class="materi-item">
+                <h3>9. Apakah tujuan dari Minimum Spaning tree dalam graf berbobot ?
+                    Sebutkan dua algoritma yang dapat digunakan untuk mencarinya ?
+                    </h3>
+                <img>
+                <div>
+                    <div class="button-area">
+                        <button id="showAnswer" onclick="showAns9()">Show Answer</button>
+                        <button id="hideAnswer" onclick="hideAns9()">Hide Answer</button>
+                    </div>
+                    <p id="answer9" style="display: none;">
+                        Tujuan dari minimum spanning tree adalah untuk menghubungkan seluruh simpul dengan total bobot paling minimum
+                        dan tanpa membentuk sirkuit.<br/>
+                        Algoritma yang dapat digunakan untuk mencari Minimum spanning tree ada dua, yaitu:<br/>
+                         - Algoritma Prim <br/>
+                         - Algoritma Kruskal 
+                    </p>
+                </div>
+            </div>
+            <div class="materi-item">
+                <h3>10. Sebutkan perbedaan dari antara graf terhubung (connected graph) dan tree, mesikupun keduanya sama-sama terhubung.</h3>
+                <img>
+                <div>
+                    <div class="button-area">
+                        <button id="showAnswer" onclick="showAns10()">Show Answer</button>
+                        <button id="hideAnswer" onclick="hideAns10()">Hide Answer</button>
+                    </div>
+                    <p id="answer10" style="display: none;">
+                        Graf terhubung memiliki simpul yang saling terhubung dengan simpul lain melewati garis path, dan pada graf terhubung bisa memiliki path yang membentuk sirkuit.<br/>
+                        Sedangkan Tree (Pohon) memiliki simpul yang terhubung dan hanya memiliki satu jalur unik yang menghubungkan antar simpul yang tidak membentuk sirkuit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <footer>
+        <p class="footer">&copy; 2025 Website Materi Matematika Diskrit. Kelompok 10.</p>
+    </footer>
+
+    <script src="../script/script.js"></script>
+</body>
+</html>

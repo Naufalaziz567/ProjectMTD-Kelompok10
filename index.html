@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Kelompok 10</title>
+    <style>
+        @import url(../MTD-Kelompok-10-PohonDanPohonBerakar/assets/styles/style.css);
+    </style>
+</head>
+<body>
+    <div class="head">
+        <header>
+            <div class="title">
+                <h1>Kelompok 10</h1>
+                <p>Materi Pohon</p>
+            </div>
+            <nav>
+                <a href="../MTD-Kelompok-10-PohonDanPohonBerakar/index.html" class="active" aria-current="page">Materials Page</a>
+                <a href="../MTD-Kelompok-10-PohonDanPohonBerakar/assets/pages/evaluation.html">Evaluation</a>
+                <a href="../MTD-Kelompok-10-PohonDanPohonBerakar/assets/pages/calculator.html">Calculator</a>
+            </nav>
+        </header>
+    </div>
+    <div class="container">
+        <div class="material">
+            <h2>Pohon & Pohon Berakar</h2>
+            
+            <div class="materi-item">
+                <h3>Video Materi Definisi Pohon</h3>
+                <iframe src="https://www.youtube.com/embed/OJ544wy2yVk?si=YHdpC4pAOB_eclC0" title="Definisi Pohon" frameborder="0" allowfullscreen></iframe>
+                <p>
+                    Video penjelasan mengenai definisi pohon dalam matematika diskrit.                    
+                </p>
+            </div>
+
+            <div class="materi-item">
+                <h3>Apa itu Pohon?</h3>
+                <p>Tree (pohon) adalah bentuk khusus dari graf.
+                    Sebuah graf terhubung di mana setiap pasangan simpul dihubungkan oleh lintasan tunggal.
+                    Secara sederhana, tree adalah graf tak berarah yang terhubung dan tidak memiliki sirkuit (cycle).<br/>
+                <br/>Contohnya bisa kita bayangkan seperti pohon keluarga , ada akar (root), lalu bercabang ke bawah hingga ke daun.
+                </p>
+                <img src="../MTD-Kelompok-10-PohonDanPohonBerakar/assets/img/exPohon.png" alt="contoh pohon">
+            </div>
+            
+            <div class="materi-item">
+                <h3>Sifat-Sifat Pohon</h3>
+                <p>Beberapa ciri penting dari sebuah tree:<br>
+                    Jika memiliki n simpul, maka jumlah sisinya n-1.<br>
+                    Contoh:<br>
+                    <li>5 simpul → 4 sisi</li>
+                    <li>10 simpul → 9 sisi</li>
+                </p>
+                <p>Setiap dua simpul terhubung hanya melalui satu lintasan unik.<br>
+                    Tidak mengandung sirkuit (tidak ada jalur melingkar).<br>
+                    Jika ditambahkan satu sisi saja, maka akan terbentuk sirkuit dan bukan tree lagi.</p>
+            </div>
+            
+            <div class="materi-item">
+                <h3>Forest (Hutan)</h3>
+                <p>Forest (hutan) berbeda dengan tree tunggal.
+                Forest adalah kumpulan beberapa tree yang tidak saling terhubung, tetapi masing-masing tidak memiliki sirkuit.
+                </p>
+                <p>Setiap komponennya merupakan satu pohon tersendiri.
+                Ibaratnya seperti hutan sungguhan, terdiri dari banyak pohon yang berdiri sendiri-sendiri.</p>
+            </div>
+
+            <div class="materi-item">
+                <h3>Video Materi Spanning Tree</h3>
+                <iframe src="https://www.youtube.com/embed/GfRny5s3WAI?si=fgNqLHhEp8ixAODi" title="Definisi Pohon" frameborder="0" allowfullscreen></iframe>
+                <p>
+                    Video penjelasan mengenai spanning tree dalam matematika diskrit.
+                </p>
+            </div>
+
+            <div class="materi-item">
+                <h3>Minimum Spanning Tree</h3>
+                <p>MST (Minimum Spanning Tree) adalah spanning tree dengan total bobot paling minimum.
+                </p>
+                <p>Spanning Tree sendiri merupakan subgraf dari graf asal yang berbentuk tree dan mencakup semua simpul.
+                Tujuannya adalah mencapai efisiensi maksimal dengan biaya minimum.</p>
+                <img src="../MTD-Kelompok-10-PohonDanPohonBerakar/assets/img/MST.png" alt="Minimum Spanning Tree">
+            </div>
+
+            <div class="materi-item">
+                <h3>Algoritma Prim</h3>
+                <p>Algoritma Prim berfokus pada simpul (vertex).<br>
+                Langkah-langkahnya:
+                <li>Pilih sisi dengan bobot terkecil → masukkan ke T.</li>
+                <li>Pilih sisi berikutnya yang:</li>
+                <li>Memiliki bobot minimum,</li>
+                <li>Terhubung dengan simpul yang sudah ada di T,</li>
+                <li>Tidak membentuk sirkuit.</li>
+                <li>Ulangi hingga terbentuk n-1 sisi.</li>
+                </p>
+                <p>Catatan: Sisi baru harus terhubung dengan simpul yang sudah ada di T.</p>
+            </div>
+
+            <div class="materi-item">
+                <h3>Algoritma Kruskal</h3>
+                <p>Algoritma Kruskal berfokus pada sisi (edge) dan bobotnya.<br>
+                Langkah-langkah:
+                <li>Urutkan semua sisi berdasarkan bobot dari kecil ke besar.</li>
+                <li>Pilih sisi dengan bobot terkecil.</li>
+                <li>Tambahkan ke T jika tidak membentuk sirkuit.</li>
+                <li>Ulangi hingga mendapatkan n-1 sisi.</li>
+                </p>
+                <p>Perbedaan utama dengan Prim:<br>
+                Pada Kruskal, sisi tidak harus langsung terhubung sejak awal, yang penting tidak membentuk cycle.</p>
+            </div>
+
+            <div class="materi-item">
+                <h3>Video Materi Rooted Tree</h3>
+                <iframe src="https://www.youtube.com/embed/pLdxlj4AOvo?si=QgXyz8_Vb6sBptYI" title="Definisi Pohon" frameborder="0" allowfullscreen></iframe>
+                <p>
+                    Video penjelasan mengenai Pohon Berakar dalam matematika diskrit.
+                </p>
+            </div>
+
+            <div class="materi-item">
+                <h3>Pohon Berakar (Rooted Tree)</h3>
+                <p>Rooted Tree adalah tree yang memiliki satu simpul utama sebagai akar (root).<br>
+                    <li>Root: simpul dengan derajat masuk 0.</li>
+                    <li>Simpul lainnya: memiliki satu derajat masuk (dari parent).</li>
+                    <li>Daun (leaf): simpul tanpa anak.</li>
+                </p>
+                <img src="../MTD-Kelompok-10-PohonDanPohonBerakar/assets/img/rootedTree.png" alt="Rooted Tree">
+            </div>
+
+            <div class="materi-item">
+                <h3> Terminologi Pohon Berakar</h3>
+                <p>Beberapa istilah penting:<br>
+                    <li>Root: simpul paling atas.</li>
+                    <li>Parent: simpul yang punya anak di bawahnya.</li>
+                    <li>Child: simpul yang menjadi turunan langsung.</li>
+                    <li>Leaf: simpul tanpa anak.</li>
+                    <li>Level: jarak dari root (root = level 0, anak root = level 1, dst).</li>
+                    <li>Height/Depth: level tertinggi dalam pohon.</li>
+                </p>
+            </div>
+        </div>
+    </div> 
+    <footer>
+        <p class="footer">&copy; 2025 Website Materi Matematika Diskrit. Kelompok 10.</p>
+    </footer>
+
+    <script src="../MTD-Kelompok-10-PohonDanPohonBerakar/assets/script/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Kelompok 10 - Kalkulator Pohon</title>
+    <style>
+        
+        @import url(../styles/style.css);
+        
+        .calc-card {
+            background: #2f07b4;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: white;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button.btn-hitung {
+            width: 100%;
+            padding: 12px;
+            background-color: #512be8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+
+        button.btn-hitung:hover { background-color: #3c11e9; }
+
+        #hasil-container {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #2f07b4;
+            border-radius: 4px;
+            display: none; /* Disembunyikan saat awal */
+        }
+
+        .result-text { font-size: 18px; font-weight: bold; margin: 0; color: #42ffb7; }
+        .formula-info { font-size: 14px; color: #ffffff; margin-top: 5px; font-style: italic; }
+        
+        .panel {
+            background-color: #2f07b4;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            border: 1px solid #e8e8e8;
+        }
+        
+        .panel-title {
+            font-size: 1.5rem;
+            color: #2575fc;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .panel-title i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .input-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 13px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: monospace;
+        }
+        
+        .btn {
+            width: 100%;
+            display: inline-block;
+            background: #512be8;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-bottom: 12px;
+        }
+        
+        .btn:hover {
+            background: #3c11e9;
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        
+        .edge-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .edge-input input {
+            flex: 1;
+        }
+        
+        .result-container {
+            padding: 20px;
+            background-color: #2f07b4;
+            border-radius: 10px;
+        }
+        
+        .algorithm-comparison {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .algorithm-result {
+            flex: 1;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #2f07b4;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .mst-edges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .mst-edge {
+            background-color: #007BFF;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            border: 1px solid #91d5ff;
+        }
+        
+        .total-weight {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #a958ff;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="head">
+        <header>
+            <div class="title">
+                <h1>Kelompok 10</h1>
+                <p>Materi Pohon</p>
+            </div>
+            <nav>
+                <a href="/index.html">Halaman Materi</a>
+                <a href="../pages/evaluation.html">Evaluation</a>
+                <a href="../pages/calculator.html" class="active" aria-current="page">Kalkulator</a>
+            </nav>
+        </header>
+    </div>
+
+    <div class="kalkulator-container">
+        <div id="kalkulator" class="page">
+            <h2 style="text-align: center; margin-bottom: 20px;">Kalkulator Properti Pohon</h2>
+            
+            <div class="calc-card">
+                <div class="form-group">
+                    <label for="calcType">Apa yang ingin dihitung?</label>
+                    <select id="calcType" onchange="updateLabel()">
+                        <option value="edges">Hitung Jumlah Sisi (Diketahui Simpul)</option>
+                        <option value="maxNodes">Max Simpul Pohon Biner (Diketahui Tinggi)</option>
+                        <option value="minHeight">Tinggi Min. Pohon Biner (Diketahui Simpul)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label id="inputLabel" for="inputValue">Masukkan Jumlah Simpul (V):</label>
+                    <input type="number" id="inputValue" placeholder="Contoh: 5" min="0">
+                </div>
+
+                <button class="btn-hitung" onclick="hitungPohon()">Hitung Hasil</button>
+
+                <div id="hasil-container">
+                    <p class="result-text" id="resultOutput">Hasil: 0</p>
+                    <p class="formula-info" id="formulaOutput">Rumus: -</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; color: #555; line-height: 1.6;">
+                <h3>Keterangan Rumus:</h3>
+                <ul>
+                    <li><strong>Sisi (Edges):</strong> E = V - 1 (Jumlah simpul dikurang satu).</li>
+                </ul>
+            </div>
+        </div>
+        <div id="kalkulator" class="page">
+            <h2 style="text-align: center; margin-bottom: 20px;">Kalkulator Minimum Spanning Tree</h2>
+                <div class="panel">
+                    <h2 class="panel-title">Input Graf</h2>
+                    
+                    <!-- Input dengan Matriks -->
+                    <div id="edge-input" class="input-section active">
+                        <div class="form-group">
+                            <label for="nodeCountEdge">Jumlah Node (Vertex):</label>
+                            <input type="number" id="nodeCountEdge" min="2" max="20" value="6">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="edgeList">Daftar Edge (Format: node1 node2 berat):</label>
+                            <textarea id="edgeList" placeholder="Contoh:
+A B 4
+A C 3
+B C 1
+B D 2
+C D 4
+C E 5
+D E 7
+D F 3
+E F 6"></textarea>
+                            <small style="color: #ffffff;">Satu edge per baris. Node bisa berupa huruf atau angka.</small>
+                        </div>
+                    </div>                   
+                    
+                    <div class="form-group">
+                        <label>Pilih Algoritma:</label>
+                        <div style="display: flex; gap: 15px;">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" id="algorithmPrim" checked style="margin-right: 8px;">
+                                Algoritma Prim
+                            </label>
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" id="algorithmKruskal" checked style="margin-right: 8px;">
+                                Algoritma Kruskal
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn" id="calculateBtn"> Hitung MST</button>
+                    </div>
+                </div>
+            
+                <div class="panel">
+                    <h2 class="panel-title"> Hasil Perhitungan</h2>
+                    
+                    <div id="resultContainer">
+                        <div style="text-align: center; padding: 40px; color: #ffffff;">
+                            
+                        </div>
+                    </div>
+                    
+                    <div id="comparisonResult" style="display: none;">
+                        <div class="algorithm-comparison">
+                            <div class="algorithm-result prim-result" id="primResult">
+                                <h3 style="color: #a958ff;">Algoritma Prim</h3>
+                                <div class="mst-edges" id="primEdges"></div>
+                                <div class="total-weight" id="primTotal"></div>
+                            </div>
+                            
+                            <div class="algorithm-result kruskal-result" id="kruskalResult">
+                                <h3 style="color: #30fcae;">Algoritma Kruskal</h3>
+                                <div class="mst-edges" id="kruskalEdges"></div>
+                                <div class="total-weight" id="kruskalTotal"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <h2 class="panel-title">Informasi Algoritma</h2>
+                    <div style="display: flex; gap: 20px;">
+                        <div style="flex: 1;">
+                            <h4 style="color: #a958ff; margin-bottom: 10px;">Algoritma Prim</h4>
+                            <p style="font-size: 0.95rem; color: #ffffff;">
+                                Membangun MST dari satu node awal, menambah edge dengan bobot terkecil yang terhubung ke tree yang sudah terbentuk.
+                                Cocok untuk graf padat (dense graph).
+                            </p>
+                        </div>
+                        <div style="flex: 1;">
+                            <h4 style="color: #30fcae; margin-bottom: 10px;">Algoritma Kruskal</h4>
+                            <p style="font-size: 0.95rem; color: #ffffff;">
+                                Mengurutkan semua edge dari terkecil ke terbesar, lalu menambahkan edge yang tidak membentuk siklus.
+                                Cocok untuk graf jarang (sparse graph).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <footer>
+        <p class="footer">&copy; 2025 Website Materi Matematika Diskrit. Kelompok 10.</p>
+    </footer>
+
+    <script src="../script/script.js"></script>
+</body>
+</html>
